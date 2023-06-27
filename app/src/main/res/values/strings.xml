@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mozio</string>
+    <string name="first_person_stamps">First Person stamps</string>
+    <string name="second_person_stamps">Second Person stamps</string>
+    <string name="first_person_gets">First Person gets:</string>
+    <string name="calculate">Calculate</string>
+    <string name="second_person_gets">Second Person gets:</string>
+</resources>
