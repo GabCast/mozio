@@ -7,13 +7,14 @@ class PizzaRepositoryImpl @Inject constructor(retrofitClient: Retrofit) : PizzaR
 
     private val client = retrofitClient.create(PizzaService::class.java)
 
-    override suspend fun menu(): ArrayList<Pizza>? {
+    override suspend fun menu():ArrayList<Pizza>? {
         val response = client.menu()
         return if (response.isSuccessful) {
-            arrayListOf()
+            response.body()
         } else {
-            // this should be handle with an error state
+            // this should be handle by an error handle
             arrayListOf()
         }
+
     }
 }
