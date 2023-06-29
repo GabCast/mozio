@@ -1,8 +1,11 @@
-package com.example.mozio.pizza
+package com.example.mozio.pizza.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mozio.pizza.model.Menu
+import com.example.mozio.pizza.model.Order
+import com.example.mozio.pizza.repository.PizzaRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -13,10 +16,12 @@ import javax.inject.Inject
 class PizzaViewmodel @Inject constructor(private val repository: PizzaRepository) : ViewModel() {
 
     val isLoading = MutableLiveData<Boolean>()
-    val onSuccess = MutableLiveData<ArrayList<Pizza>>()
+    val onSuccess = MutableLiveData<ArrayList<Menu>>()
     val onConnectionError = MutableLiveData<Boolean>()
+    val order = MutableLiveData<Order>()
+    val completed = MutableLiveData<Boolean>()
 
-    val coroutineExceptionHandler = CoroutineExceptionHandler { e, y ->
+    private val coroutineExceptionHandler = CoroutineExceptionHandler { e, y ->
         onConnectionError.postValue(true)
     }
 

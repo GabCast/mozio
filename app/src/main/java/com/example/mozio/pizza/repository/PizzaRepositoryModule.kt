@@ -1,5 +1,7 @@
-package com.example.mozio.pizza
+package com.example.mozio.pizza.repository
 
+import com.example.mozio.pizza.repository.PizzaRepository
+import com.example.mozio.pizza.repository.PizzaRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

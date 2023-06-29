@@ -15,9 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.mozio"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".pizza.PizzaActivity"
+            android:name=".pizza.ui.CheckoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pizza.ui.PizzaActivity"
             android:exported="false" />
         <activity
             android:name=".stamps.StampsActivity"

@@ -1,11 +1,11 @@
-package com.example.mozio.pizza
+package com.example.mozio.pizza.model
 
 import retrofit2.Response
 import retrofit2.http.GET
 
 interface PizzaService {
 
-    @GET("pizzas")
+    @GET("pizzas.json")
     suspend fun menu(
-    ): Response<ArrayList<Pizza>>
+    ): Response<ArrayList<Menu>>
 }
