@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mozio.databinding.ActivityMainBinding
-import com.example.mozio.pizza.PizzaActivity
+import com.example.mozio.pizza.ui.PizzaActivity
 import com.example.mozio.stamps.StampsActivity
 import dagger.hilt.android.AndroidEntryPoint
 
