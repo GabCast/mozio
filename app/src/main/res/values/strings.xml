@@ -5,4 +5,7 @@
     <string name="first_person_gets">First Person gets:</string>
     <string name="calculate">Calculate</string>
     <string name="second_person_gets">Second Person gets:</string>
+    <string name="stamps_challenge">Stamps Challenge</string>
+    <string name="pizza_challenge">Pizza Challenge</string>
+    <string name="buy">Buy</string>
 </resources>

@@ -9,5 +9,5 @@ import dagger.hilt.components.SingletonComponent
 @Module
 object AppModule {
     @Provides
-    fun provideBaseUrl() = ""
+    fun provideBaseUrl() = "http://demo3088837.mockable.io/"
 }

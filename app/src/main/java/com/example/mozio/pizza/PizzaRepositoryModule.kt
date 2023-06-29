@@ -1,4 +1,4 @@
-package com.example.mozio
+package com.example.mozio.pizza
 
 import dagger.Binds
 import dagger.Module
@@ -7,8 +7,9 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @InstallIn(ViewModelComponent::class)
 @Module
-abstract class StampsRepositoryModule {
+abstract class PizzaRepositoryModule {
 
     @Binds
-    abstract fun bindStampsRepository(impl: StampsRepositoryImpl): StampsRepository
+    abstract fun bindPizzaRepository(impl: PizzaRepositoryImpl): PizzaRepository
+
 }

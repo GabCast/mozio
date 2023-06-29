@@ -1,4 +1,4 @@
-package com.example.mozio
+package com.example.mozio.stamps
 
 interface StampsRepository {
 
