@@ -1,10 +1,10 @@
 package com.example.mozio.pizza.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.mozio.databinding.ActivityPizzaBinding
 import com.example.mozio.pizza.model.Menu
@@ -61,41 +61,44 @@ class PizzaActivity : AppCompatActivity() {
             override fun onHalfClicked(product: Menu) {
                 when {
                     viewModel.order.value?.flavors.isNullOrEmpty() -> {
+                        // there is no pizza added
                         viewModel.order.value = Order(product.price / 2, arrayListOf(product.name))
                         viewModel.completed.value = false
+
+                        // notify the adapter to disable half buttons
                         productsAdapter?.products = data.onEach { it.totalDisabled = true }
                         productsAdapter?.notifyDataSetChanged()
                     }
 
                     viewModel.order.value?.flavors?.size == 1 -> {
+                        // there is a half pizza added
                         viewModel.order.value?.price =
                             viewModel.order.value?.price!! + product.price / 2
                         viewModel.order.value?.flavors!!.add(product.name)
                         viewModel.completed.value = true
-                    }
 
-                    else -> {
-                        Toast.makeText(
-                            this@PizzaActivity,
-                            "The order is completed",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        // notify the adapter to disable all buttons
+                        productsAdapter?.products = data.onEach {
+                            it.totalDisabled = true
+                            it.halfDisabled = true
+                        }
+                        productsAdapter?.notifyDataSetChanged()
                     }
                 }
                 binding?.buyOrder?.isEnabled = viewModel.completed.value!!
             }
 
             override fun onTotalClicked(product: Menu) {
-                if (viewModel.completed.value == true) {
-                    Toast.makeText(
-                        this@PizzaActivity,
-                        "The order is completed",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    viewModel.order.value = Order(product.price, arrayListOf(product.name))
-                    viewModel.completed.value = true
+                // this is going to be able is no pizza is added, due to the disables buttons
+                viewModel.order.value = Order(product.price, arrayListOf(product.name))
+                viewModel.completed.value = true
+
+                // notify the adapter to disable all buttons
+                productsAdapter?.products = data.onEach {
+                    it.totalDisabled = true
+                    it.halfDisabled = true
                 }
+                productsAdapter?.notifyDataSetChanged()
                 binding?.buyOrder?.isEnabled = viewModel.completed.value!!
             }
         }).apply {

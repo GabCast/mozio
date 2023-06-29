@@ -18,7 +18,6 @@ class CheckoutActivity : AppCompatActivity() {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-
         val order: Order = intent.extras?.getBundle(ORDER_BUNDLE)?.getParcelable(ORDER)!!
 
         with(order) {

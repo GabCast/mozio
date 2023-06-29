@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import kotlin.jvm.Throws
 
-internal class MozioHttpClient @Inject constructor(private val baseUrl: String) {
+class MozioHttpClient @Inject constructor(private val baseUrl: String) {
 
     private var httpClient: Retrofit? = null
 

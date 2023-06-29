@@ -43,6 +43,7 @@ class ProductsAdapter(
         fun bind(content: Menu) {
             with(binding) {
                 total.isEnabled = !content.totalDisabled
+                half.isEnabled = !content.halfDisabled
 
                 productName.text = content.name
                 productPrice.text = content.price.toString()
